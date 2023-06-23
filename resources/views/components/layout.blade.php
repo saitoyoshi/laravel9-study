@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{ $title ?? 'laravel9勉強'}}</title>
+  @stack('css')
   <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   <script src="{{ mix('/js/app.js') }}" async defer></script>
 </head>
