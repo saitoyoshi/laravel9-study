@@ -43,7 +43,7 @@ class NewUserIntroduction extends Mailable
     {
         return new Content(
             // view: 'view.name',
-            view: 'email.new_user_introduction',
+            markdown: 'email.new_user_introduction',
         );
     }
 
