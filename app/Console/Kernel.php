@@ -12,14 +12,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+
+        $schedule->command(' mail:send-daily-tweet-count-mai
+        l')->dailyAt('11:00');
         // $schedule->command('inspire')->hourly();
-        // 毎分
-        $schedule->command('study-command')->everyMinute()->emailOutputTo('info@example .com');
-        $schedule->command('study-command')->hourly();
-        $schedule->command('study-command')->hourlyAt(8);
-        $schedule->command('study-command')->daily();
-        $schedule->command('study-command')->dailyAt('13:00');
-        $schedule->command('study-command')->cron('15 3  * * *');
+
+        // (勉強用に残す)
+        // $schedule->command('study-command')->everyMinute()->emailOutputTo('info@example .com');
+        // $schedule->command('study-command')->hourly();
+        // $schedule->command('study-command')->hourlyAt(8);
+        // $schedule->command('study-command')->daily();
+        // $schedule->command('study-command')->dailyAt('13:00');
+        // $schedule->command('study-command')->cron('15 3  * * *');
     }
 
     /**
