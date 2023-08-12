@@ -8,8 +8,10 @@
 </head>
 <body>
     @auth
-
-
+    <form action="{{ route('logout') }}" method="post">
+    @csrf
+    <button>ログアウト</button>
+    </form>
     <h1>つぶやき登録</h1>
     @if(session('message'))
         <p style="color: green">{{ session('message') }}</p>
@@ -30,12 +32,18 @@
   @foreach($tweets as $tweet)
   <ul>
     <li>{{ $tweet->content }} by {{ $tweet->user->name }}</li>
+    @if(\Illuminate\Support\Facades\Auth::id() === $tweet->user_id)
+
+
     <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id ]) }}"><button>更新</button></a>
     <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="post">
     @csrf
     @method('DELETE')
     <button>削除</button>
     </form>
+    @else
+        操作できません
+    @endif
 </ul>
   @endforeach
 </body>
