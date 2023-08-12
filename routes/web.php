@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 Route::get('/study', [IndexController::class, 'hello']);
 Route::get('/study/{id}', [IndexController::class, 'showId'])->whereNumber('id');
+
+
+Route::get('/tweet', App\Http\Controllers\Tweet\IndexController::class);
