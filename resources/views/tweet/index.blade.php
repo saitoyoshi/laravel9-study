@@ -23,6 +23,7 @@
   @foreach($tweets as $tweet)
   <ul>
     <li>{{ $tweet->content }}</li>
+    <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id ]) }}"><button>更新</button></a>
 </ul>
   @endforeach
 </body>
