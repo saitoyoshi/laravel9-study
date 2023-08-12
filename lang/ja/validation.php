@@ -4,6 +4,8 @@ return [
     'attributes' => [
         'tweet' => 'つぶやき',
     ],
-    'required' => ':attributes は必須入力です',
-    'max' => ':max 文字を超えてはいけません',
+    'required' => ':attribute は必須入力です',
+    'max' => [
+        'string' => ':max 文字以下で入力してください'
+    ]
 ];

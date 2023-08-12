@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>つぶやき登録</h1>
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            <p style="color: red">{{ $error }}</p>
+        @endforeach
+    @endif
     <form action="{{ route('tweet.create') }}" method="post">
         @csrf
         <label for="">つぶやき</label>
