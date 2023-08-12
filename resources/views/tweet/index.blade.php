@@ -7,6 +7,9 @@
   <title>Document</title>
 </head>
 <body>
+    @auth
+
+
     <h1>つぶやき登録</h1>
     @if(session('message'))
         <p style="color: green">{{ session('message') }}</p>
@@ -22,10 +25,11 @@
         <textarea name="tweet" id="" cols="30" rows="10"></textarea>
         <button type="submit">登録</button>
     </form>
+    @endauth
     <h1>つぶやき一覧</h1>
   @foreach($tweets as $tweet)
   <ul>
-    <li>{{ $tweet->content }}</li>
+    <li>{{ $tweet->content }} by {{ $tweet->user->name }}</li>
     <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id ]) }}"><button>更新</button></a>
     <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="post">
     @csrf

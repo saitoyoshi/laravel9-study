@@ -17,6 +17,7 @@ class TweetFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => 1,
             'content' => fake()->realText(50),
         ];
     }
