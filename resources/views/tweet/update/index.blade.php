@@ -9,6 +9,12 @@
 <body>
   <h1>つぶやき更新</h1>
   <a href="{{ route('tweet.index') }}">戻る</a>
+  @if($errors->any())
+  @foreach ($errors->all() as $error)
+  <p style="color: red">{{ $error }}</p>
+
+  @endforeach
+  @endif
   <form action="{{ route('tweet.update.put', ['tweetId' => $tweet->id ]) }}" method="post">
     @csrf
     @method('PUT')
