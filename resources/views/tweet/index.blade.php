@@ -27,6 +27,11 @@
   <ul>
     <li>{{ $tweet->content }}</li>
     <a href="{{ route('tweet.update.index', ['tweetId' => $tweet->id ]) }}"><button>更新</button></a>
+    <form action="{{ route('tweet.delete', ['tweetId' => $tweet->id]) }}" method="post">
+    @csrf
+    @method('DELETE')
+    <button>削除</button>
+    </form>
 </ul>
   @endforeach
 </body>
