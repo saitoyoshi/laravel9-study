@@ -18,6 +18,6 @@ class UpdateController extends Controller
         $tweet->content = $request->tweet;
         $tweet->update();
 
-        return redirect(route('tweet.index'));
+        return redirect(route('tweet.index'))->with('message', 'つぶやきを更新しました');
     }
 }

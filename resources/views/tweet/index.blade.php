@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>つぶやき登録</h1>
+    @if(session('message'))
+        <p style="color: green">{{ session('message') }}</p>
+    @endif
     @if($errors->any())
         @foreach($errors->all() as $error)
             <p style="color: red">{{ $error }}</p>

@@ -18,7 +18,7 @@ class CreateController extends Controller
         $tweet->content = $request->tweet;
         $tweet->save();
 
-        return redirect(route('tweet.index'));
+        return redirect(route('tweet.index'))->with('message', 'つぶやきを登録しました');
 
     }
 }
