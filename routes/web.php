@@ -21,4 +21,5 @@ Route::get('/study', [IndexController::class, 'hello']);
 Route::get('/study/{id}', [IndexController::class, 'showId'])->whereNumber('id');
 
 
-Route::get('/tweet', App\Http\Controllers\Tweet\IndexController::class);
+Route::get('/tweet', App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index');
+Route::post('/tweet/create', App\Http\Controllers\Tweet\CreateController::class)->name('tweet.create');

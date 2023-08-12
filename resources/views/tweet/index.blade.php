@@ -7,6 +7,13 @@
   <title>Document</title>
 </head>
 <body>
+    <h1>つぶやき登録</h1>
+    <form action="{{ route('tweet.create') }}" method="post">
+        @csrf
+        <label for="">つぶやき</label>
+        <textarea name="tweet" id="" cols="30" rows="10"></textarea>
+        <button type="submit">登録</button>
+    </form>
     <h1>つぶやき一覧</h1>
   @foreach($tweets as $tweet)
   <ul>
