@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Study\IndexController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/study', [IndexController::class, 'hello']);
-Route::get('/study/{id}', [IndexController::class, 'showId'])->whereNumber('id');
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/tweet', App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index');
-Route::post('/tweet/create', App\Http\Controllers\Tweet\CreateController::class)->name('tweet.create');
-Route::get('tweet/update/{tweetId}', App\Http\Controllers\Tweet\Update\IndexController::class)->name('tweet.update.index')->whereNumber('tweetId');
-Route::put('tweet/update/{tweetId}', App\Http\Controllers\Tweet\Update\UpdateController::class)->name('tweet.update.put')->whereNumber('tweetId');
-Route::delete('/tweet/delete/{tweetId}', App\Http\Controllers\Tweet\DeleteController::class)->name('tweet.delete')->whereNumber('tweetId');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
