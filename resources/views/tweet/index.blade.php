@@ -7,6 +7,11 @@
   <title>Document</title>
 </head>
 <body>
+    @guest
+        <a href="/login">ログインする</a>
+        <a href="/register">新規登録</a>
+
+    @endguest
     @auth
     <form action="{{ route('logout') }}" method="post">
     @csrf
