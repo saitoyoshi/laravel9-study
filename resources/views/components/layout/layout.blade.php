@@ -10,14 +10,14 @@
 </head>
 <body>
     <header class="container pt-4">
-        <h2>つぶやきアプリ</h2>
+
         <x-navbar>
         </x-navbar>
     </header>
     <main class="container">
     {{ $slot }}
 </main>
-    <footer>
+    <footer class="container">
         @laravel
     </footer>
 </body>
