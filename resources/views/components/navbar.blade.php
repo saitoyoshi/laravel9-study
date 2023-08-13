@@ -1,6 +1,9 @@
+<nav class="">
+
+<ul class="navbar-nav justify-content-end flex-row">
     @guest
-        <a href="{{ route('login') }}">ログインする</a>
-        <a href="{{ route('register') }}">新規登録</a>
+       <li class="nav-item me-3"><a href="{{ route('login') }}" class="nav-link"><button class="btn btn-primary">ログインする</button></a></li>
+        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><button class="btn btn-success">新規登録</button></a></li>
 
     @endguest
     @auth
@@ -9,3 +12,5 @@
     <button>ログアウト</button>
     </form>
     @endauth
+</ul>
+</nav>
