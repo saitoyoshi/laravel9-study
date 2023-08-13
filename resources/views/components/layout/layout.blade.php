@@ -9,6 +9,8 @@
 <body>
     <header>
         <h2>つぶやきアプリ</h2>
+        <x-navbar>
+        </x-navbar>
     </header>
     <main>
     {{ $slot }}

@@ -3,17 +3,8 @@
         つぶやき一覧
     </x-slot:title>
 
-    @guest
-        <a href="{{ route('login') }}">ログインする</a>
-        <a href="{{ route('register') }}">新規登録</a>
 
-    @endguest
     @auth
-    <form action="{{ route('logout') }}" method="post">
-    @csrf
-    <button>ログアウト</button>
-    </form>
-
     <h1>つぶやき登録</h1>
     @if(session('message'))
         <p style="color: green">{{ session('message') }}</p>
