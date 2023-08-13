@@ -28,7 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/bootstrap', function() {
+    return view('bootstrap');
+});
 
 Route::get('/tweet', App\Http\Controllers\Tweet\IndexController::class)->name('tweet.index');
 Route::middleware('auth')->group(function() {
