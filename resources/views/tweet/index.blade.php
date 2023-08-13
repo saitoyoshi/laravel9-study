@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    @guest
+<x-layout.layout>
+    <x-slot:title>
+        つぶやき一覧
+    </x-slot:title>
+@guest
         <a href="/login">ログインする</a>
         <a href="/register">新規登録</a>
 
@@ -51,5 +46,4 @@
     @endif
 </ul>
   @endforeach
-</body>
-</html>
+</x-layout.layout>
